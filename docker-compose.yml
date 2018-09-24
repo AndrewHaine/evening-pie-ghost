@@ -1,0 +1,32 @@
+version: "3"
+
+services:
+  ghost:
+    image: ghost:2.1.2-alpine
+    volumes:
+      - "./ghost:/var/lib/ghost"
+    ports:
+      - "2368:2368"
+    environment:
+      database__client: mysql
+      database__connection__host: db
+      database__connection__user: root
+      database__connection__password: ghostroot
+      database__connection__database: eveningpie_ghostdb
+  db:
+    image: mysql:5.6
+    ports:
+      - "3306:3306"
+    environment:
+      MYSQL_ROOT_PASSWORD: ghostroot
+    volumes:
+      - "./db/databases:/var/lib/mysql"
+      - "./db/docker/database-import:/docker-entrypoint-initdb.d"
+  frontend:
+    image: node:10.7.0-alpine
+    command: "npm run dev"
+    ports:
+      - "8080:3000"
+    volumes:
+      - "./frontend:/home/node/app"
+    working_dir: "/home/node/app"

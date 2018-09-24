@@ -1,0 +1,5 @@
+export default {
+  GHOST_ENDPOINT: "",
+  GHOST_CLIENT: "",
+  GHOST_SECRET: ""
+};

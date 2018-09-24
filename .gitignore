@@ -1,0 +1,10 @@
+
+# Local docker database persistance
+/db/databases/
+/db/docker/
+
+# Node/NPM
+/**/node_modules/
+
+# VScode
+.vscode/
