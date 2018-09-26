@@ -1,6 +1,7 @@
 import App, { Container } from "next/app";
 import React from "react";
 import Blog from "../components/core/Blog";
+import "../sass/style.sass";
 
 class MyBlog extends App {
   static async getInitialProps({ Component, ctx }) {
