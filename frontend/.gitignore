@@ -8,3 +8,6 @@
 
 # Ghost env
 config.js
+
+# Next bundles
+.next/
