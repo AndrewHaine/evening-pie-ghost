@@ -1,12 +1,32 @@
 import React, { Component } from "react";
-import Nav from "./Nav";
+import Link from "next/link";
+import Nav from "../Nav/Nav";
 
 class Header extends Component {
   render() {
+    const { activeSegment } = this.props;
+
     return (
       <header>
-        <p>This is the header</p>
-        <Nav />
+        <div className="header__inner">
+          <div className="header_logo">
+            <Link href="/">
+              <a>
+                <figure className="header_logo__fig">
+                  <img
+                    className="header_logo__el"
+                    src="/static/logo/eveningpie-white-text.svg"
+                    alt="Evening Pie"
+                    title="Evening Pie"
+                  />
+                </figure>
+              </a>
+            </Link>
+          </div>
+          <div className="header__nav">
+            <Nav />
+          </div>
+        </div>
       </header>
     );
   }

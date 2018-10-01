@@ -9,7 +9,7 @@ class Index extends Component {
   static async getInitialProps() {
     const res = await axios.get(Ghost.getPosts());
 
-    return { posts: res.data.posts };
+    return { posts: res.data.posts, activeSegment: "/" };
   }
   render() {
     return (

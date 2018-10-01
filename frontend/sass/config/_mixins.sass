@@ -1,0 +1,10 @@
+
+// Mixin for responsive design
+@mixin respond($width)
+  @media screen and (min-width: $width)
+    @content
+
+@mixin site_width()
+  margin: 0 auto
+  width: 92vw
+  max-width: $site_width

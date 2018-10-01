@@ -1,6 +1,7 @@
 import App, { Container } from "next/app";
 import React from "react";
 import Blog from "../components/core/Blog";
+import BlogProvider from "../components/core/BlogProvider";
 import "../sass/style.sass";
 
 class MyBlog extends App {
@@ -16,9 +17,11 @@ class MyBlog extends App {
     const { Component, pageProps } = this.props;
     return (
       <Container>
-        <Blog>
-          <Component {...pageProps} />
-        </Blog>
+        <BlogProvider>
+          <Blog>
+            <Component {...pageProps} />
+          </Blog>
+        </BlogProvider>
       </Container>
     );
   }

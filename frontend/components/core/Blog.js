@@ -4,6 +4,7 @@ import React, { Component } from "react";
 import Header from "./Header";
 import Footer from "./Footer";
 import MetaHead from "./MetaHead";
+import { BlogContext } from "./BlogProvider";
 
 class Blog extends Component {
   render() {
@@ -11,7 +12,18 @@ class Blog extends Component {
       <div>
         <MetaHead />
         <Header />
-        <main>{this.props.children}</main>
+        <BlogContext.Consumer>
+          {context => (
+            <main
+              id="blog_container"
+              className={`blog_main ${
+                context.state.navOpen ? "body--nav_open" : ""
+              }`}
+            >
+              {this.props.children}
+            </main>
+          )}
+        </BlogContext.Consumer>
         <Footer />
       </div>
     );

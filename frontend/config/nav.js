@@ -1,19 +1,23 @@
 const Nav = [
   {
     title: "Posts",
-    link: "/"
+    link: "/",
+    activeSegments: ["/", "/post", "/posts"]
   },
   {
     title: "About",
-    link: "/about"
+    link: "/about",
+    activeSegments: ["/about"]
   },
   {
     title: "Tools",
-    link: "/tools"
+    link: "/tools",
+    activeSegments: ["/tools"]
   },
   {
     title: "Project World Unlocked",
-    link: "/project-world-unlocked"
+    link: "/project-world-unlocked",
+    activeSegments: ["/project-world-unlocked"]
   }
 ];
 

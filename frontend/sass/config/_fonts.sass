@@ -1,74 +1,40 @@
-// Source fonts from google
-@font-face
-  font-family: 'Overlock Regular'
-  font-style: normal
-  font-weight: 400
-  src: local('Overlock Regular'), local('Overlock-Regular'), url(https://fonts.gstatic.com/s/overlock/v7/Z9XVDmdMWRiN1_T9Z7TZ6Oo.woff) format('woff')
-
-@font-face
-  font-family: 'Overlock Italic'
-  font-style: italic
-  font-weight: 400
-  src: local('Overlock Italic'), local('Overlock-Italic'), url(https://fonts.gstatic.com/s/overlock/v7/Z9XTDmdMWRiN1_T9Z7Tc2O6slQ.woff) format('woff')
-
-@font-face
-  font-family: 'Overlock Black'
-  font-style: normal
-  font-weight: 900
-  src: local('Overlock Black'), local('Overlock-Black'), url(https://fonts.gstatic.com/s/overlock/v7/Z9XSDmdMWRiN1_T9Z7xaz_mLtro.woff) format('woff')
-
-@font-face
-  font-family: 'Overlock Black Italic'
-  font-style: italic
-  font-weight: 900
-  src: local('Overlock Black Italic'), local('Overlock-BlackItalic'), url(https://fonts.gstatic.com/s/overlock/v7/Z9XQDmdMWRiN1_T9Z7Tc0G2Lhr6j9w.woff) format('woff')
-
-@font-face
-  font-family: 'Muli Light'
-  font-style: normal
-  font-weight: 300
-  src: local('Muli Light'), local('Muli-Light'), url(https://fonts.gstatic.com/s/muli/v11/7Au_p_0qiz-adZnkOCX2yQ.woff) format('woff')
-
-@font-face
-  font-family: 'Muli Light Italic'
-  font-style: italic
-  font-weight: 300
-  src: local('Muli Light Italic'), local('Muli-LightItalic'), url(https://fonts.gstatic.com/s/muli/v11/7Au9p_0qiz-afTf-hCDGzWQO.woff) format('woff')
-
-@font-face
-  font-family: 'Muli Bold'
-  font-style: normal
-  font-weight: 700
-  src: local('Muli Bold'), local('Muli-Bold'), url(https://fonts.gstatic.com/s/muli/v11/7Au_p_0qiz-adYnjOCX2yQ.woff) format('woff')
-
-@font-face
-  font-family: 'Muli Bold Italic'
-  font-style: italic
-  font-weight: 700
-  src: local('Muli Bold Italic'), local('Muli-BoldItalic'), url(https://fonts.gstatic.com/s/muli/v11/7Au9p_0qiz-afTf-lCfGzWQO.woff) format('woff')
-
-
 // Create mixins for using fonts within other sheets
 @mixin overlock-regular()
-  font-family: "Overlock Regular", Arial, Helvetica, sans-serif
+  font-family: "Overlock", Arial, Helvetica, sans-serif
+  font-style: normal
+  font-weight: 400
 
 @mixin overlock-regular--italic()
-  font-family: "Overlock Italic", Arial, Helvetica, sans-serif
+  font-family: "Overlock", Arial, Helvetica, sans-serif
+  font-style: italic
+  font-weight: 400
 
 @mixin overlock-black()
-  font-family: "Overlock Black", Arial, Helvetica, sans-serif
+  font-family: "Overlock", Arial, Helvetica, sans-serif
+  font-style: normal
+  font-weight: 900
 
 @mixin overlock-black--italic()
-  font-family: "Overlock Black Italic", Arial, Helvetica, sans-serif
+  font-family: "Overlock", Arial, Helvetica, sans-serif
+  font-style: italic
+  font-weight: 900
 
 @mixin muli-light()
-  font-family: "Muli Light", Arial, Helvetica, sans-serif
+  font-family: "Muli", Arial, Helvetica, sans-serif
+  font-style: normal
+  font-weight: 300
 
 @mixin muli-light--italic()
-  font-family: "Muli Light Italic", Arial, Helvetica, sans-serif
+  font-family: "Muli", Arial, Helvetica, sans-serif
+  font-style: italic
+  font-weight: 300
 
 @mixin muli-bold
-  font-family: "Muli Bold", Arial, Helvetica, sans-serif
+  font-family: "Muli", Arial, Helvetica, sans-serif
+  font-style: normal
+  font-weight: 700
 
 @mixin muli-bold--italic
-  font-family: "Muli Bold Italic", Arial, Helvetica, sans-serif
+  font-family: "Muli", Arial, Helvetica, sans-serif
+  font-style: italic
+  font-weight: 700
