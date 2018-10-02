@@ -4,10 +4,8 @@ import Nav from "../Nav/Nav";
 
 class Header extends Component {
   render() {
-    const { activeSegment } = this.props;
-
     return (
-      <header>
+      <header class="header__container">
         <div className="header__inner">
           <div className="header_logo">
             <Link href="/">

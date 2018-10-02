@@ -1,0 +1,123 @@
+.page_top
+  position: relative
+  width: 100%
+  padding-top: 75px
+  background: linear-gradient(36deg, $color-orange--dark, $color-orange--light)
+  text-align: center
+  overflow: auto
+  transform: skewY(-5deg)
+  transform-origin: 0 0
+
+@include respond(560px)
+  .page_top
+    padding-top: 80px
+    transform: skewY(-4deg)
+
+@include respond(768px)
+  .page_top
+    padding-top: 100px
+
+@include respond(1024px)
+  .page_top
+    padding-top: 130px
+
+@include respond(1160px)
+  .page_top
+    padding-top: 150px
+    transform: skewY(-2.5deg)
+
+
+
+// Content container
+.page_top__content
+  position: relative
+  display: block
+  width: 75%
+  max-width: 786px
+  margin: 0 auto 80px
+  transform: skewY(5deg)
+  transform-origin: 0 0
+
+@include respond(560px)
+  .page_top__content
+    transform: skewY(4deg)
+
+@include respond(768px)
+  .page_top__content
+    width: 60%
+    margin: 0 auto 150px
+
+@include respond(1160px)
+  .page_top__content
+    transform: skewY(2.5deg)
+
+
+
+// Title
+.page_top__title
+  @include overlock_black--italic()
+  font-size: 2.3rem
+  line-height: 1
+  margin: 0 auto
+
+  .page_top--home &
+    font-size: 2.9rem
+
+@include respond(560px)
+  .page_top__title
+    font-size: 2.9rem
+
+    .page_top--home &
+      font-size: 3.6rem
+
+@include respond(768px)
+  .page_top__title
+    font-size: 3.4rem
+
+    .page_top--home &
+      font-size: 4rem
+
+@include respond(1024px)
+  .page_top__title
+    font-size: 4.9rem
+
+    .page_top--home &
+      font-size: 5.6rem
+
+
+
+// Intro paragraph
+.page_top__intro
+  display: block
+  margin: 0 auto
+  max-width: 360px
+  font-size: 1.2rem
+  line-height: 1.3
+
+  strong
+    @include muli-bold()
+
+@include respond(560px)
+  .page_top__intro
+    font-size: 1.35rem
+
+
+
+// Intro datestamp
+.page_top__datestamp
+  @include overlock-regular--italic()
+  position: relative
+  display: block
+  color: $color_white
+  margin: 0 auto 13px
+  line-height: 1
+  font-size: 1.2rem
+
+  &::after
+    @include overlock-black--italic()
+    position: absolute
+    left: 50%
+    top: 100%
+    width: 100%
+    content: '~'
+    transform: translateX(-50%)

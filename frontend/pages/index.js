@@ -2,6 +2,8 @@ import React, { Component } from "react";
 import axios from "axios";
 import Link from "next/link";
 
+import Home from "../components/Pages/Home";
+
 import GhostClient from "../lib/Ghost/utils/Client";
 const Ghost = new GhostClient();
 
@@ -9,11 +11,12 @@ class Index extends Component {
   static async getInitialProps() {
     const res = await axios.get(Ghost.getPosts());
 
-    return { posts: res.data.posts, activeSegment: "/" };
+    return { posts: res.data.posts };
   }
   render() {
     return (
       <div>
+        <Home />
         {this.props.posts.map(post => {
           return (
             <div className="post" key={post.id}>
