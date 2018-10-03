@@ -7,12 +7,12 @@ class SinglePost extends Component {
   render() {
     const post = this.props.postData;
     return (
-      <div class="post_container">
+      <div className="post_container">
         <PageTop
           title={post.title}
           pagetype="post"
           datestamp={{
-            pretty: format(post.published_at, "do MMMM y"),
+            pretty: format(post.published_at, "MMMM do y"),
             raw: post.published_at
           }}
         />

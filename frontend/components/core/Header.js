@@ -5,7 +5,7 @@ import Nav from "../Nav/Nav";
 class Header extends Component {
   render() {
     return (
-      <header class="header__container">
+      <header className="header__container">
         <div className="header__inner">
           <div className="header_logo">
             <Link href="/">

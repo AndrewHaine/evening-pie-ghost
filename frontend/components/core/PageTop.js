@@ -6,11 +6,11 @@ const PageTop = props => (
   <header className={`page_top page_top--${props.pagetype}`}>
     <div className="page_top__content">
       {props.pagetype === "post" && (
-        <time datetime={props.datestamp.raw} className="page_top__datestamp">
+        <time dateTime={props.datestamp.raw} className="page_top__datestamp">
           {props.datestamp.pretty}
         </time>
       )}
-      <h1 class="page_top__title">{props.title}</h1>
+      <h1 className="page_top__title">{props.title}</h1>
       {props.intro && (
         <ReactMarkdown className="page_top__intro" source={props.intro} />
       )}
