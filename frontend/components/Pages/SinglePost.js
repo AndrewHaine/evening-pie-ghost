@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { format } from "date-fns";
 
 import PageTop from "../core/PageTop";
+import PostHeader from "../Post/PostHeader";
 
 class SinglePost extends Component {
   render() {
@@ -16,6 +17,7 @@ class SinglePost extends Component {
             raw: post.published_at
           }}
         />
+        <PostHeader post={post} />
       </div>
     );
   }
