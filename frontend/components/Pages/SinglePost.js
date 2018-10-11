@@ -3,6 +3,7 @@ import { format } from "date-fns";
 
 import PageTop from "../core/PageTop";
 import PostHeader from "../Post/PostHeader";
+import PostContent from "../Post/PostContent";
 
 class SinglePost extends Component {
   render() {
@@ -17,7 +18,10 @@ class SinglePost extends Component {
             raw: post.published_at
           }}
         />
-        <PostHeader post={post} />
+        <main className="post__content">
+          <PostHeader post={post} author={this.props.author} />
+          <PostContent post={post} />
+        </main>
       </div>
     );
   }
