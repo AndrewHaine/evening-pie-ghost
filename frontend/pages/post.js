@@ -6,6 +6,8 @@ import SinglePost from "../components/Pages/SinglePost.js";
 import GhostClient from "../lib/Ghost/utils/Client";
 const Ghost = new GhostClient();
 
+import "../sass/post_content.sass";
+
 class Post extends Component {
   static async getInitialProps({ query }) {
     const post = await axios.get(Ghost.getPostBySlug(query.slug));

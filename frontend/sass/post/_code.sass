@@ -1,0 +1,130 @@
+/**
+ * Code blocks
+ */
+
+$code-standard: #EAFFFF
+$js: #E9E92B
+$markup: #E84242
+$php: #C284DF
+$css: #EAA538
+
+.code-block
+  position: relative
+  padding: 23px 20px 18px
+  background: $color-purple--dark
+  color: $code-standard
+  overflow: auto
+  border-radius: 5px
+  box-shadow: 0 3px 7px rgba($color_black, .6)
+
+  &::before
+    position: absolute
+    top: 0
+    left: 0
+    width: 100%
+    height: 8px
+    content: ''
+    background: $code-standard
+
+  &.language-javascript,
+  &.language-jsx
+    &::before
+      background: $js
+
+  &.language-html,
+  &.language-markup,
+  &.language-xml
+    &::before
+      background: $markup
+
+  &.language-sass,
+  &.language-css,
+  &.language-scss
+    &::before
+      background: $css
+
+  &.language-php
+    &::before
+      background: $php
+
+code
+  pre &
+    display: block
+    width: 100%
+    overflow: auto
+
+.code-block__label
+  position: absolute
+  top: 21px
+  right: 15px
+  padding: 2px 8px 4px
+  background: rgba($color-white, .3)
+  border-radius: 3px
+  font-size: 1.2rem
+  @include muli-light()
+
+// Prism token styles
+$comment: #939DA2
+$operator: #89DDFF
+$keyword: #C792EA
+$classname: #FFCA57
+$function: #82AAFF
+$tag: #F07178
+$string: #B0E775
+$regex: #F292CB
+$attr-name: #C792EA
+$attr-value: #C3E88D
+$boolean: #FF8663
+$css-property: #F07178
+$css-attr: #ACCDD7
+$css-atrule: #79AAFF
+$selector: #FFCA57
+$var: #A1C0E6
+$package: #FFCA57
+$json-prop: #C792EA
+$yaml-prop: #F07178
+
+.token
+  &.comment
+    color: $comment
+  &.class-name
+    color: $classname
+  &.keyword
+    color: $keyword
+  &.function
+    color: $function
+  &.operator
+    color: $operator
+  &.punctuation
+    color: $operator
+  &.tag
+    color: $tag
+  &.string
+    color: $string
+  &.attr-name
+    color: $attr-name
+  &.attr-value
+    color: $attr-value
+  &.regex
+    color: $regex
+  &.boolean
+    color: $boolean
+  &.selector
+    color: $selector
+  &.property-line
+    color: $css-property
+    .property
+      color: $css-attr
+  &.atrule-line
+    color: $css-atrule
+    .atrule
+      color: $keyword
+  &.variable
+    color: $var
+  &.package
+    color: $package
+  &.property
+    .language-json &
+      color: $json-prop
+  &.key
+    color: $yaml-prop
