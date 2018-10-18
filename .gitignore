@@ -6,6 +6,9 @@
 # Node/NPM
 /**/node_modules/
 
+# Sensitive ghost config
+ghost/config.*.json
+
 # VScode
 .vscode/
 

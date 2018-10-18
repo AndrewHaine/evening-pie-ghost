@@ -49,7 +49,7 @@ const Home = props => (
     </div>
     <figure className="post_header__image">
       <ProcessImage
-        image={formatContentLink(props.post.feature_image)}
+        image={props.post.feature_image}
         cover={{ width: 2150, height: 1100, mode: "vertical_middle" }}
       />
     </figure>
