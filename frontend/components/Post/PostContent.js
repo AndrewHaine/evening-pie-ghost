@@ -16,9 +16,12 @@ class PostContent extends Component {
   render() {
     return (
       <section className="post__main wysiwyg">
-        {Parser(this.props.post.html, {
-          replace: transformContent
-        })}
+        <div className="post__main_content">
+          {Parser(this.props.post.html, {
+            replace: transformContent
+          })}
+        </div>
+        <aside className="post__main_sidebar" />
       </section>
     );
   }

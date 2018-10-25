@@ -1,9 +1,23 @@
 .post__main
-  width: 100%
-  max-width: 1000px
+  display: flex
+  justify-content: space-between
+  width: 98%
+  max-width: 960px
   margin: 0 auto
-  padding: 40px 5%
+  padding: 0 5%
+
+.post__main__sidebar
+  display: none
+
+@include respond(650px)
+  .post__main
+    width: 90%
+    padding: 0
+
+  .post__main_content
+    width: 80%
+    padding: 40px 0
 
 @include respond(960px)
-  .post__main
-    padding: 40px 20px
+  .post__main_content
+    padding: 50px 20px
