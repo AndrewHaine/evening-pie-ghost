@@ -23,7 +23,7 @@ class PostContent extends Component {
   }
   render() {
     return (
-      <section className="post__main wysiwyg">
+      <section id="post-main" className="post__main wysiwyg">
         <div className="post__main_content">
           {Parser(this.props.post.html, {
             replace: transformContent

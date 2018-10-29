@@ -4,6 +4,7 @@ import { format } from "date-fns";
 import PageTop from "../core/PageTop";
 import PostHeader from "../Post/PostHeader";
 import PostContent from "../Post/PostContent";
+import PostNav from "../Post/PostNav";
 
 class SinglePost extends Component {
   render() {
@@ -19,6 +20,7 @@ class SinglePost extends Component {
           }}
         />
         <main className="post__content">
+          <PostNav post={post} />
           <PostHeader post={post} author={this.props.author} />
           <PostContent post={post} />
         </main>

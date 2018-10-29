@@ -1,0 +1,57 @@
+.post-nav
+  position: fixed
+  top: 0
+  left: 0
+  display: flex
+  align-items: center
+  width: 100%
+  height: 70px
+  padding: 10px
+  z-index: 999
+  background: rgba($color-orange--dark, .9)
+  box-shadow: 0 2px 8px rgba($color-black, .23)
+
+.post-nav__inner
+  display: flex
+  justify-content: space-between
+  align-items: center
+  width: 100%
+
+.post-nav__progress
+  appearance: none
+  -webkit-appearance: none
+  position: absolute
+  bottom: 0
+  left: 0
+  width: 100%
+  height: 4px
+  border: 0
+  border-radius: 0
+  background: transparent
+
+  &::-webkit-progress-bar
+    background: transparent
+
+  &::-moz-progress-bar
+    background: $color-white
+
+  &::-webkit-progress-value
+    background: $color-white
+
+.post-nav__logo
+  display: none
+
+.post-nav__main
+  width: 65%
+
+.post-nav__title
+  @include overlock-black--italic()
+  display: block
+  font-size: 1.3rem
+  line-height: 1.5rem
+
+.post-nav__meta
+  display: none
+
+.post-nav__links
+  background: rgba($color-black, .3)
