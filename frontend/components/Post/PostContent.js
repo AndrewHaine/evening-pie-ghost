@@ -7,6 +7,14 @@ const transformContent = node => {
     const isCode = node.children[0].name === "code";
     if (isCode) return Blocks.highlightCodeBlock(node);
   }
+
+  if (node.type === "tag" && node.name === "figure") {
+    const classes = node.attribs.class.split(" ");
+
+    if (classes.indexOf("kg-image-card") > -1) {
+      return Blocks.cloudinaryImageBlock(node);
+    }
+  }
 };
 
 class PostContent extends Component {

@@ -1,25 +1,21 @@
 import React, { Component } from "react";
-import dynamic from "next/dynamic";
 
-import cloudinary from "cloudinary-core";
-import ProgressiveFadeImage from "../lib/ProgressiveFadeImage";
-
-const cl = new cloudinary.Cloudinary({ cloud_name: "andrewhaine" });
+import ProgressiveFadeImage from "../core/ProgressiveFadeImage";
+import { applyCloudinaryTransformations } from "../lib/helpers/utils";
 
 class Home extends Component {
   constructor(props) {
     super(props);
 
-    // Split the existing cloudinary url
-    const headerImage = props.post.feature_image.split("v1/")[1];
+    const { post } = props;
 
     this.state = {
-      fullHeaderImage: cl.url(headerImage, {
+      fullHeaderImage: applyCloudinaryTransformations(post.feature_image, {
         width: 2150,
         height: 1100,
         crop: "fill"
       }),
-      placeholderImage: cl.url(headerImage, {
+      placeholderImage: applyCloudinaryTransformations(post.feature_image, {
         width: 215,
         height: 110,
         effect: "blur:300",

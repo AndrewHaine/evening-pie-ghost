@@ -10,13 +10,39 @@ class ProgressiveFadeImage extends Component {
     this.state = {
       placeholder: props.placeholder,
       src: props.placeholder,
-      loading: true
+      loading: true,
+      inView: false
     };
+
+    this.checkViewStatus = this.checkViewStatus.bind(this);
   }
 
   componentDidMount() {
-    const { src } = this.props;
-    this.loadImage(src);
+    this.checkViewStatus();
+    window.addEventListener("scroll", this.checkViewStatus);
+    window.addEventListener("resize", this.checkViewStatus);
+    window.addEventListener("orientationchange", this.checkViewStatus);
+  }
+
+  componentWillUnmount() {
+    window.removeEventListener("scroll", this.checkViewStatus);
+    window.removeEventListener("resize", this.checkViewStatus);
+    window.removeEventListener("orientationchange", this.checkViewStatus);
+  }
+
+  checkViewStatus(e) {
+    if (!this.imgNode) return false;
+    let isInView =
+      this.imgNode.getBoundingClientRect().top <= window.innerHeight + 100 &&
+      this.imgNode.getBoundingClientRect().bottom >= 0;
+    let shouldLoadImage =
+      isInView && getComputedStyle(this.imgNode).display !== "none";
+
+    if (shouldLoadImage) {
+      const { src } = this.props;
+      this.setState({ inView: true });
+      this.loadImage(src);
+    }
   }
 
   loadImage(src) {
@@ -36,7 +62,7 @@ class ProgressiveFadeImage extends Component {
         src: this.image.src,
         loading: false
       });
-    }, 1500);
+    }, 1000);
   };
 
   removeSelf(e) {
@@ -47,7 +73,11 @@ class ProgressiveFadeImage extends Component {
     const { src, placeholder, loading } = this.state;
     const { alt, className } = this.props;
     return (
-      <div className="progressive-fade-image" style={{ position: "relative" }}>
+      <div
+        className="progressive-fade-image"
+        style={{ position: "relative" }}
+        ref={imgNode => (this.imgNode = imgNode)}
+      >
         <img
           onTransitionEnd={this.removeSelf}
           src={placeholder}
