@@ -1,6 +1,6 @@
 .post-nav
   position: fixed
-  top: 0
+  top: -100px
   left: 0
   display: flex
   align-items: center
@@ -8,8 +8,22 @@
   height: 70px
   padding: 10px
   z-index: 999
-  background: rgba($color-orange--dark, .9)
+  background: rgba($color-orange--dark, .95)
   box-shadow: 0 2px 8px rgba($color-black, .23)
+  transition: top .2s ease-out
+  will-change: top
+
+  &.is-visible
+    top: 0 !important
+
+@include respond(620px)
+  .post-nav
+    height: 85px
+    top: -110px
+
+@include respond(820px)
+  .post-nav
+    padding: 10px 20px
 
 .post-nav__inner
   display: flex
@@ -24,7 +38,7 @@
   bottom: 0
   left: 0
   width: 100%
-  height: 4px
+  height: 3px
   border: 0
   border-radius: 0
   background: transparent
@@ -41,8 +55,31 @@
 .post-nav__logo
   display: none
 
+
+@include respond(890px)
+  .post-nav__logo
+    display: block
+
+    img
+      display: inline-block
+      margin-right: 20px
+      width: 150px
+
+@include respond(1200px)
+  .post-nav__logo img
+    margin-right: 35px
+
+@include respond(1440px)
+  .post-nav__logo
+    width: calc((100% - 1076px) / 2)
+
 .post-nav__main
   width: 65%
+
+@include respond(620px)
+  .post-nav__main
+    width: auto
+    flex-grow: 1
 
 .post-nav__title
   @include overlock-black--italic()
@@ -50,8 +87,55 @@
   font-size: 1.3rem
   line-height: 1.5rem
 
+@include respond(444px)
+  .post-nav__title
+    font-size: 1.5rem
+
+@include respond(620px)
+  .post-nav__title
+    padding-right: 30px
+    line-height: 1
+    font-size: 1.75rem
+
+@include respond(890px)
+  .post-nav__title
+    font-size: 2.05rem
+
+@include respond(1200px)
+  .post-nav__title
+    font-size: 2.2rem
+
 .post-nav__meta
+  @include muli-bold()
   display: none
+  color: $color-white
+
+@include respond(620px)
+  .post-nav__meta
+    display: inline-block
+    font-size: 1.1rem
+    padding-top: 3px
 
 .post-nav__links
-  background: rgba($color-black, .3)
+  display: flex
+  flex-shrink: 0
+  align-items: center
+
+  .post-nav__tweet
+    font-size: 0
+
+  .btn-arrow
+    padding: .66rem
+    font-size: 0
+    margin-left: 1rem
+
+    &::after
+      margin: 0
+
+@include respond(450px)
+  .btn-arrow
+    .post-nav__links &
+      font-size: 1.2rem
+
+      &::after
+        margin-left: 1rem

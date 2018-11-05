@@ -20,7 +20,14 @@ class SinglePost extends Component {
           }}
         />
         <main className="post__content">
-          <PostNav post={post} />
+          <PostNav
+            post={post}
+            author={this.props.author}
+            datestamp={{
+              pretty: format(post.published_at, "dd-MM-yy"),
+              raw: post.published_at
+            }}
+          />
           <PostHeader post={post} author={this.props.author} />
           <PostContent post={post} />
         </main>

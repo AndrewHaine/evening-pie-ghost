@@ -1,0 +1,24 @@
+.sq-btn
+  appearance: none
+  background: transparent
+  text-decoration: none
+  border: 1px solid
+  line-height: 1
+
+.sq-btn--white
+  color: $color-white
+  border-color: $color-white
+
+.btn-arrow
+  @include muli-bold()
+  display: inline-flex
+  align-items: center
+  white-space: nowrap
+
+  &::after
+    width: 1.35rem
+    height: 1.35rem
+    flex-shrink: 0
+    content: ''
+    margin-left: 1rem
+    background: transparent url('/static/icons/fa-arrow-right.svg') 50%/contain no-repeat
