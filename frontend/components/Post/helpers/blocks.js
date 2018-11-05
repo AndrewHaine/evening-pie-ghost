@@ -1,5 +1,6 @@
 import { languages, highlight } from "prismjs";
 import Parser from "html-react-parser";
+import slugify from "slugify";
 import ProgressiveFadeImage from "../../core/ProgressiveFadeImage";
 import { applyCloudinaryTransformations } from "../../lib/helpers/utils";
 
@@ -63,4 +64,14 @@ const cloudinaryImageBlock = node => {
   );
 };
 
-export { highlightCodeBlock, cloudinaryImageBlock };
+const linkedH2Tag = node => {
+  const text = node.children[0].data;
+  const slug = slugify(text.toLowerCase(), "-");
+  return (
+    <a href={`#${slug}`}>
+      <h2 id={slug}>{text}</h2>
+    </a>
+  );
+};
+
+export { highlightCodeBlock, cloudinaryImageBlock, linkedH2Tag };

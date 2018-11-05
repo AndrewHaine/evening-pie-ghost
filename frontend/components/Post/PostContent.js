@@ -15,6 +15,10 @@ const transformContent = node => {
       return Blocks.cloudinaryImageBlock(node);
     }
   }
+
+  if (node.type === "tag" && node.name === "h2") {
+    return Blocks.linkedH2Tag(node);
+  }
 };
 
 class PostContent extends Component {
