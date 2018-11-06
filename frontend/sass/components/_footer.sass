@@ -1,0 +1,61 @@
+.footer
+  @include overlock-regular()
+  padding: 10px
+  background: $color-orange--dark
+
+  *
+    color: $color-white
+
+.footer__inner
+  display: flex
+  flex-wrap: wrap
+
+.footer__left,
+.footer__right
+  display: flex
+  align-items: center
+  width: 100%
+
+.footer__copyright,
+.footer__credit
+  position: relative
+  display: inline-block
+  padding-right: 10px
+  margin-right: 10px
+
+  &::after
+    position: absolute
+    right: 0
+    top: 15%
+    content: ''
+    width: 1px
+    height: 70%
+    background: $color-white
+
+.footer__icon
+  display: inline-flex
+  align-content: center
+  justify-content: center
+  width: 16px
+  height: 16px
+
+  &:nth-child(n+3)
+    margin-left: 10px
+
+  svg
+    width: 100%
+    fill: $color-white
+
+@include respond(460px)
+  .footer
+    padding: 10px 30px
+    font-size: 1.1rem
+    align-items: center
+
+  .footer__inner
+    width: 100%
+    justify-content: space-between
+    flex-wrap: nowrap
+
+  .footer__right
+    justify-content: flex-end
