@@ -1,8 +1,9 @@
 import React, { Component } from "react";
-import Head from "next/head";
 import axios from "axios";
+import readingTime from "reading-time";
 
 import SinglePost from "../components/Pages/SinglePost.js";
+import BlogPostingMeta from "../components/Post/BlogPostingMeta";
 import GhostClient from "../lib/Ghost/utils/Client";
 const Ghost = new GhostClient();
 
@@ -22,12 +23,18 @@ class Post extends Component {
   }
   render() {
     const { postData, author } = this.props;
+
+    // Prevent this having to be calculated multiple times
+    const readTime = readingTime(postData.html);
+
     return (
       <div>
-        <Head>
-          <title>{postData.title} | Evening Pie</title>
-        </Head>
-        <SinglePost postData={postData} author={author} />
+        <BlogPostingMeta
+          postData={postData}
+          author={author}
+          readTime={readTime}
+        />
+        <SinglePost postData={postData} author={author} readTime={readTime} />
       </div>
     );
   }
