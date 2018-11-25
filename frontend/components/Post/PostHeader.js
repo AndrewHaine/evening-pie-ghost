@@ -35,7 +35,10 @@ class Home extends Component {
             className="post_header__author post_author"
           >
             <figure className="post_author__image">
-              <img src={props.author.profile_image} />
+              <img
+                src={props.author.profile_image}
+                alt={`${props.author.name}'s Image`}
+              />
             </figure>
             <span className="post_author__name">{props.author.name}</span>
           </a>

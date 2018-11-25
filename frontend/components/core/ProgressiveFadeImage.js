@@ -80,6 +80,7 @@ class ProgressiveFadeImage extends Component {
       >
         <img
           onTransitionEnd={this.removeSelf}
+          alt={alt}
           src={placeholder}
           style={{
             position: "absolute",

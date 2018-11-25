@@ -3,7 +3,10 @@
 import ReactMarkdown from "react-markdown";
 
 const PageTop = props => (
-  <header className={`page_top page_top--${props.pagetype}`}>
+  <header
+    className={`page_top page_top--${props.pagetype} ${props.flavour &&
+      `page_top--${props.flavour}`}`}
+  >
     <div className="page_top__content">
       {props.pagetype === "post" && (
         <time dateTime={props.datestamp.raw} className="page_top__datestamp">

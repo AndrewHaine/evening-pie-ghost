@@ -9,29 +9,34 @@ const Ghost = new GhostClient();
 
 class Index extends Component {
   static async getInitialProps() {
-    const res = await axios.get(Ghost.getPosts());
+    const featured = await axios.get(
+      Ghost.getPosts({
+        include: "tags",
+        filter: "featured:true"
+      })
+    );
 
-    return { posts: res.data.posts };
+    const standard = await axios.get(
+      Ghost.getPosts({
+        include: "tags",
+        filter: "featured:false",
+        limit: 4
+      })
+    );
+
+    return {
+      featured_post: featured.data.posts,
+      standard_posts: standard.data.posts
+    };
   }
   render() {
+    const { featured_post, standard_posts } = this.props;
     return (
       <div>
-        <Home />
-        {this.props.posts.map(post => {
-          return (
-            <div className="post" key={post.id}>
-              <h2>{post.title}</h2>
-              <Link
-                href={{
-                  pathname: "/post",
-                  query: { slug: post.slug }
-                }}
-              >
-                <a>Read more...</a>
-              </Link>
-            </div>
-          );
-        })}
+        <Home
+          featured_post={featured_post[0]}
+          standard_posts={standard_posts}
+        />
       </div>
     );
   }
