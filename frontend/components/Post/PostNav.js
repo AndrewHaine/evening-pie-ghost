@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import Link from "next/link";
 
 import NavIndicator from "./components/NavIndicator";
 
@@ -39,12 +40,16 @@ class PostNav extends Component {
       <header className={`post-nav ${this.state.isVisible && "is-visible"}`}>
         <div className="post-nav__inner">
           <figure className="post-nav__logo">
-            <img
-              className="post-nav__logo_el"
-              src="/static/logo/eveningpie-white-text.svg"
-              alt="Evening Pie"
-              title="Evening Pie"
-            />
+            <Link href="/">
+              <a>
+                <img
+                  className="post-nav__logo_el"
+                  src="/static/logo/eveningpie-white-text.svg"
+                  alt="Evening Pie"
+                  title="Evening Pie"
+                />
+              </a>
+            </Link>
           </figure>
           <div className="post-nav__main">
             <span className="post-nav__title">{this.props.post.title}</span>
@@ -54,7 +59,11 @@ class PostNav extends Component {
           </div>
           <div className="post-nav__links">
             <a
-              href="https://twitter.com"
+              href={`https://twitter.com/intent/tweet?text=${
+                this.props.post.title
+              }+%7C+Evening+Pie&via=Andrew_Haine&url=https://www.eveningpie.com/post/${
+                this.props.post.slug
+              }`}
               target="_blank"
               rel="noopener"
               title="Share this post on Twitter"
